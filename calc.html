@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proposta de Educação Financeira do Grupo 15">
+    <meta name="author" content="Grupo 15">
+    <title>CALCULATOR - G15 Financeira</title>
+    <link rel="icon" href="logo2.png" type="image/png" sizes="18x18">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img src="logo2.png" width="130px" alt="logo do site" class="logo"></a>
+            <a href="index.html">HOME</a>
+            <a href="mission.html">MISSION</a>
+            <a href="education.html">EDUCATION</a>
+            <a href="calc.html">CALCULATOR</a>
+            <a href="insights.html">INSIGHTS</a>
+        </nav>
+    </header>
+    <div class="calctop" style="background-image: url(paper-top.png);"></div>
+
+    <section class="resultado">
+        <div id="calc2">
+            <h2 id="calc-text">
+                SmartPaise Calculator
+            </h2>
+            <h3 id="calc-text2">
+                With our calculators, you’ll quickly know how your financial health is!
+            </h3>
+            <div class="calc-norm"><a href="#abrirModal">Simple Calculations</a></div>
+            <div class="calc-norm2"><a href="#abrirModal2">Financial Calculations</a></div>
+            <div style="color:white; font-family: Arial, Helvetica, sans-serif;margin-top: 80px;" class="resultado">
+                <p>If your financial calculator result is  <b style="color:green;">positive</b>, Congratulations!
+                    <br>You're doing a great job!</p>
+                <p>If your financial calculator result is  <b style="color:red;">negative</b>, be careful! <br>
+                    Revise our content to get out of this!</p>
+            </div>
+            <img src="img8.png" width="350px" alt="ilustração 8" class="ilust8">
+        </div>
+    </section>
+
+
+    <section id="abrirModal" class="modal">
+        <a href="#fechar" title="Fechar" class="fechar">x</a>
+        <form name="calcform" method="post" action="">
+            <fieldset>
+
+                <input type="text" name="visor" id="visor" />
+
+                <table id="calc">
+                    <tr>
+                        <td><input type="button" name="num9" class="num" value="9" onclick="calcNum(9)" /></td>
+                        <td><input type="button" name="num8" class="num" value="8" onclick="calcNum(8)" /></td>
+                        <td><input type="button" name="num7" class="num" value="7" onclick="calcNum(7)" /></td>
+                        <td><input type="button" name="somar" class="oper" value="+" onclick="calcParse('somar')" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" name="num6" class="num" value="6" onclick="calcNum(6)" /></td>
+                        <td><input type="button" name="num5" class="num" value="5" onclick="calcNum(5)" /></td>
+                        <td><input type="button" name="num4" class="num" value="4" onclick="calcNum(4)" /></td>
+                        <td><input type="button" name="subtrair" class="oper" value="-"
+                                onclick="calcParse('subtrair')" /></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" name="num3" class="num" value="3" onclick="calcNum(3)" /></td>
+                        <td><input type="button" name="num2" class="num" value="2" onclick="calcNum(2)" /></td>
+                        <td><input type="button" name="num1" class="num" value="1" onclick="calcNum(1)" /></td>
+                        <td><input type="button" name="multiplicar" class="oper" value="*"
+                                onclick="calcParse('multiplicar')" /></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" name="num0" class="num" value="0" onclick="calcNum(0)" /></td>
+                        <td><input type="button" name="igual" class="num" value="=" onclick="calcParse('resultado')" />
+                        </td>
+                        <td><input type="button" name="limpar" class="num" value="AC" onclick="calcLimpar()" /></td>
+                        <td><input type="button" name="dividir" class="oper" value="/" onclick="calcParse('dividir')" />
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </section>
+
+    <!-- Modal Calculadora Orçamentária -->
+
+    <section id="abrirModal2" class="modal2">
+        <a href="#fechar" title="Fechar" class="fechar">x</a>
+        <form>
+            <table>
+                <tr>
+                    <td class="logo-calc"><img src="logo.png" width="50px" style="position:relative;left:-85px;">
+                    </td>
+                    <td>
+                        <h2>Personal Expenses per Month</h2>
+                    </td>
+                </tr>
+            </table>
+            <h4>Income</h4>
+            <div class="renda">
+                <label>Net Income</label>
+                <input type="number" name="renda" id="renda">
+            </div>
+            <h4>Expenses</h4>
+            <h6 style="color:white;font-family:Arial, Helvetica, sans-serif;position: relative;left: 38%;top: -15px;">
+                <i>Enter 0 if there is no expense</i></h6>
+            <div class="despesas">
+                <table>
+                    <tr>
+                        <td><label>Water Bill</label>
+                            <input type="number" name="agua" id="agua" onblur="calculate()"></td>
+                        <td><label>Electricity Bill</label>
+                            <input type="number" name="luz" id="luz" onblur="calculate()"></td>
+                        <td><label>Rent</label>
+                            <input type="number" name="aluguel" id="aluguel" onblur="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Financing / Loan Payment</label>
+                            <input type="number" name="financiamento" id="financiamento" onblur="calculate()"></td>
+                        <td><label>Internet</label>
+                            <input type="number" name="internet" id="internet" onblur="calculate()"></td>
+                        <td><label>Mobile Phone </label>
+                            <input type="number" name="celular" id="celular" onblur="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Food</label>
+                            <input type="number" name="alimentacao" id="alimentacao" onblur="calculate()"></td>
+                        <td><label>Transportation</label>
+                            <input type="number" name="transporte" id="transporte" onblur="calculate()"></td>
+                        <td><label>Credit Card</label>
+                            <input type="number" name="cartao" id="cartao" onblur="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Leisure / Beauty</label>
+                            <input type="number" name="lazer" id="lazer" onblur="calculate()"></td>
+                        <td><label>Health</label>
+                            <input type="number" name="saude" id="saude" onblur="calculate()"></td>
+                        <td><label>Others</label>
+                            <input type="number" name="outros" id="outros" onblur="calculate()"></td>
+                    </tr>
+                </table>
+                <h4 style="margin-top:-5px" ;>Situation / Financial Status</h4>
+                <div class="total">
+                    <h6 style="color:white;margin-top:-10px;position: relative;right: 10px;"><i>Click on the blank field to see the result</i></h6>
+                    <label>Total</label>
+                    <input type="number" name="total" id="total">
+                </div>
+            </div>
+
+        </form>
+    </section>
+    </section>
+
+    <!-- Código JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
